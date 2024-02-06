@@ -93,6 +93,10 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Please select company Name ⚠️", Toast.LENGTH_SHORT).show();
                     companyNameView.setError("Company name is Required⚠️");
                 }
+                // edge_case : Enter the designation:
+                else if(designation.trim().equals("")){
+                    Toast.makeText(SignUpActivity.this, "Please select your designation⚠️",Toast.LENGTH_SHORT).show();
+                }
                 // edge_case: Enter the dateOfJoining.
                 else if(dateOfJoining.equals("")){
                     Toast.makeText(SignUpActivity.this, "Please select date of joining ⚠️", Toast.LENGTH_SHORT).show();

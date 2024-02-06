@@ -6,7 +6,13 @@ import java.util.regex.Pattern;
 public class UtilityClass {
     // Email validation function:
     public static boolean isValidEmail(String email) {
-        String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$";
+        // email doesn't contain capital letter.
+        for(int i = 0;i<email.length();i++){
+            if(email.charAt(i) >= 'A' && email.charAt(i) <= 'Z'){
+                return false;
+            }
+        }
+        String emailRegex = "^[\\p{L}0-9_.-]+@[a-z0-9.-]+\\.[a-z]{2,}$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
