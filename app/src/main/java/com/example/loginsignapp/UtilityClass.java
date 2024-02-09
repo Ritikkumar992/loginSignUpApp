@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UtilityClass {
-    // Email validation function:
+    // Email validation function :
     public static boolean isValidEmail(String email) {
         // email doesn't contain capital letter.
         for(int i = 0;i<email.length();i++){
