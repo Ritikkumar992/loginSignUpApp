@@ -14,7 +14,18 @@
 <img src = "https://github.com/Ritikkumar992/Android_Assignment_01/assets/75531808/f98cca74-ef67-47de-91b6-889ae0a89877" height = 
 "400px " width = "200px">
 
+#SignUp Page
+<img src = "https://github.com/Ritikkumar992/Android_Assignment_01/assets/75531808/bba53f41-d0e4-4e4c-97ea-a5c0fcfef605" height = 
+"400px " width = "200px">
+<img src = "https://github.com/Ritikkumar992/Android_Assignment_01/assets/75531808/82c18ac4-8a0b-462e-8d3c-ffb0459305f4" height = 
+"400px " width = "200px">
+
+# login Successfull:
+<video src = "https://github.com/Ritikkumar992/Android_Assignment_01/assets/75531808/59523d50-8f08-4465-82ab-edccb97383e2" height = 
+"400px " width = "200px">
+
 # SignUp Page.
 <video src = "https://github.com/Ritikkumar992/Android_Assignment_01/assets/75531808/20970b78-3dd2-4132-a8f6-c37c38cecd73" height = 
 "400px " width = "200px">
+
 
