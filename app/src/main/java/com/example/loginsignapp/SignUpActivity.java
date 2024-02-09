@@ -1,5 +1,4 @@
 package com.example.loginsignapp;
-import  com.example.loginsignapp.UtilityClass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,23 +6,20 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 
 public class SignUpActivity extends AppCompatActivity {
 
-    // variable declaration to fetch ui element of the app.
+    // variable declaration to fetch ui element of the SignUpapp.
     EditText signUpEmailView, signUpPasswordView, userNameView, datePicker;
     Button signUpBtn;
     TextView loginText;
@@ -40,10 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
         designationView = findViewById(R.id.spinnerId);
         datePicker = findViewById(R.id.datePicker);
     }
-    // Array to store the designation of the employee.
-    private String DesignationData[]={
-            " ","Android Developer","FullStack Developer","Devops Engineer","Tech Lead","Product Manger","React Developer"
-    };
+
+
 
 
     @Override
@@ -53,6 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // calling initializeView method to get the UI element of the app.
         this.initialize();
+
 
         // STEP_04: signUp button clicked.
         signUpBtn.setOnClickListener(view->{
@@ -65,43 +60,45 @@ public class SignUpActivity extends AppCompatActivity {
             String designation = designationView.toString();
             String dateOfJoining = datePicker.getText().toString();
 
-                //edge_case: Entering a valid email ID.
+
+                //edge_case_04: Email Validation : if user doesn't enter email id.
                 if(userEmailId.trim().equals("")){
-                    Toast.makeText(SignUpActivity.this, "Please how  enter a valid email Id ⚠️", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Please Enter a email Id ⚠️", Toast.LENGTH_SHORT).show();
                     signUpEmailView.setError("Email is Required⚠️");
                 }
+                // edge_case_05: Email Validation : if user doesn't enter valid email id.
                 else if(!UtilityClass.isValidEmail(userEmailId)){
-                    Toast.makeText(SignUpActivity.this, "Please hellow Enter a valid Email Id ⚠️", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Please Enter a valid Email Id ⚠️", Toast.LENGTH_SHORT).show();
                     signUpEmailView.setError("Valid Email is Required⚠️");
                 }
-                //edge_cas: Entering a valid Password.
+                //edge_case_06: Password Validation.
                 else if(userPassword.trim().equals("")){
                     Toast.makeText(SignUpActivity.this, "Please Enter Your Password 🔒", Toast.LENGTH_SHORT).show();
-                    signUpPasswordView.setError("Password is Required 🔒");
                 }
                 else if(!UtilityClass.isValidPassword(userPassword)){
-                    Toast.makeText(SignUpActivity.this, "Please Enter Valid Password", Toast.LENGTH_SHORT).show();
-                    signUpPasswordView.setError("Min 1 UpperCase, 1 LowerCase , 1 Digit, 1 Special Character and Min 8 character required 🔒");
+                    Toast.makeText(SignUpActivity.this, "Min 1 UpperCase, 1 LowerCase , 1 Digit, 1 Special Character and Min 8 character required 🔒", Toast.LENGTH_SHORT).show();
                 }
-                // edge_case: Enter the UserName.
+
+                // edge_case_07: userName can't be blank.
                 else if(userName.trim().equals("")){
                     Toast.makeText(SignUpActivity.this, "Please Enter Your Name ⚠️", Toast.LENGTH_SHORT).show();
                     userNameView.setError("Name is Required⚠️");
                 }
-                // edge_case: Enter the compayName.
+
+                // edge_case_08: companyName can't be blank.
                 else if(companyName.trim().equals("")){
                     Toast.makeText(SignUpActivity.this, "Please select company Name ⚠️", Toast.LENGTH_SHORT).show();
                     companyNameView.setError("Company name is Required⚠️");
                 }
-                // edge_case : Enter the designation:
+
+                // edge_case_09: designation can't be blank.
                 else if(designation.trim().equals("")){
                     Toast.makeText(SignUpActivity.this, "Please select your designation⚠️",Toast.LENGTH_SHORT).show();
                 }
-                // edge_case: Enter the dateOfJoining.
+                // edge_case_10: dateOfJoining can't be blank.
                 else if(dateOfJoining.equals("")){
                     Toast.makeText(SignUpActivity.this, "Please select date of joining ⚠️", Toast.LENGTH_SHORT).show();
                     datePicker.setError("Joining Date is Required⚠️");
-                    Log.w("doj", dateOfJoining);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Sign Up Successful",Toast.LENGTH_LONG).show();
@@ -109,26 +106,27 @@ public class SignUpActivity extends AppCompatActivity {
                     signUpPasswordView.getText().clear();
                     userNameView.getText().clear();
                     companyNameView.getText().clear();
-//                    designation.equals(" ");
                     datePicker.getText().clear();
                 }
-
         });
 
         //STEP_05: login Button to back to the login page.
         loginText.setOnClickListener(view ->{
-            // creating intent class:
-            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         });
 
 
-
-        //Feature_01: Spinner is implemented as a Drop Down to fetch the data.
+        //Feature_01: Spinner is implemented as a Drop Down to fetch the designation data.
+        // Array to store the designation of the employee.
+        String[] DesignationData ={
+                " ","Android Developer","FullStack Developer","Devops Engineer","Tech Lead","Product Manger","React Developer"
+        };
         // adapter use spinner to populate data.
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,DesignationData);
         designationView.setAdapter(arrayAdapter);
+
 
         //Feature_02: AutoComplete Text feature in company Name text field:
         String[] companyArr ={
