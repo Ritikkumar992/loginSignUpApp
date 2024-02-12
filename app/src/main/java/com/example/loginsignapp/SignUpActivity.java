@@ -1,7 +1,5 @@
 package com.example.loginsignapp;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Calendar;
 
 
@@ -25,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextView loginText;
     AutoCompleteTextView companyNameView;
     Spinner designationView;
+    
     public void initialize()
     {
         signUpEmailView = findViewById(R.id.signUpEmailId);
@@ -36,10 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         designationView = findViewById(R.id.spinnerId);
         datePicker = findViewById(R.id.datePicker);
     }
-
-
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
